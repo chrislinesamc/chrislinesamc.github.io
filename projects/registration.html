@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streaming registration · Chrisline Sam C</title>
+<meta name="description" content="Streaming out-of-core rigid registration of whole-slide histology at native resolution: 600 GB of output from about 12 GB of memory. Poster at the 10th BigBrain Workshop, by Chrisline Sam Christopher and colleagues.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://chrislinesamc.github.io/projects/registration.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://chrislinesamc.github.io/projects/registration.html">
+<meta property="og:title" content="Streaming registration · native resolution, bounded memory">
+<meta property="og:description" content="Rigid registration of whole-slide histology at 0.5 µm per pixel, written tile by tile. Poster at the 10th BigBrain Workshop, Montréal, 2026.">
+<meta property="og:image" content="https://chrislinesamc.github.io/assets/img/registration/card.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.replace('no-js', 'js')</script>
+</head>
+<body class="page-reg">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-next" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 3.5v-.2A1.8 1.8 0 0 0 8.7 1.5H3.3a1.8 1.8 0 0 0-1.8 1.8v5.4a1.8 1.8 0 0 0 1.8 1.8h.2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <p class="note"><span class="note-long">Still in development · some details may not be accurate yet</span><span class="note-short">In development · details may not be accurate yet</span></p>
+  <div class="nav-in">
+    <a class="brand" href="../" aria-label="Chrisline Sam C, home">
+      <img class="brand-mark" src="../assets/img/logo.svg" alt="" width="46" height="40">
+      <span>Chrisline Sam C</span>
+    </a>
+    <nav aria-label="Site">
+      <a href="../#about">About</a>
+      <a href="../#work">Work</a>
+      <a href="../#publications">Papers</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="neurons" data-neurons data-dim-after="-1" aria-hidden="true"></div>
+
+<main id="main">
+
+<section class="story" data-story aria-label="Streaming registration, told in scroll">
+  <div class="story-stage" aria-hidden="true">
+    <img class="tiles-still" src="../assets/img/registration/fb85-section.webp" alt="" width="501" height="593">
+    <canvas class="tiles" data-tiles data-src="../assets/img/registration/fb85-section.webp" data-range="1.7,4.6"></canvas>
+  </div>
+
+  <div class="beat beat-intro" data-beat><div class="beat-in">
+    <p class="eyebrow">Poster · 10th BigBrain Workshop · Montréal</p>
+    <h1 class="story-title">Streaming registration</h1>
+    <p class="lede">Rigid registration of whole-slide histology at its native resolution, in bounded memory.</p>
+    <p class="scroll-cue"><span></span>Scroll</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">A terabyte per section.</h2>
+    <p>Whole-slide sections are scanned at 0.5&nbsp;µm per pixel. At that resolution, in-memory registration tools need roughly a terabyte per section, so analyses have usually dropped to half resolution.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">Write the output tile by&nbsp;tile.</h2>
+    <p>Each output tile maps its four corners back into the source and reads only that footprint, through a bounded cache.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">Skip what isn't tissue.</h2>
+    <p>A tile whose footprint misses the tissue is written as a constant background, without reading anything at all.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">Straight into a pyramid.</h2>
+    <p>Finished tiles are encoded and appended to a tiled pyramidal file, level after level. TIFF, OME-TIFF and OME-Zarr all work.</p>
+  </div></div>
+</section>
+
+<section class="section" aria-labelledby="results-h">
+  <div class="wrap">
+    <h2 id="results-h" class="section-title reveal">What it does to the numbers</h2>
+    <dl class="stats stats-3">
+      <div class="stat reveal"><dt>600&nbsp;GB</dt><dd>Of registered output, produced in about 12&nbsp;GB of memory.</dd></div>
+      <div class="stat reveal"><dt>&lt;&nbsp;4&nbsp;min</dt><dd>On 32 cores, down from about half an hour on two. Past that, the output writer is the bottleneck.</dd></div>
+      <div class="stat reveal"><dt>Exact</dt><dd>At level 1, the output matches the in-memory pipeline exactly.</dd></div>
+    </dl>
+
+    <div class="loop reveal" role="group" aria-label="The algorithm, for each level of the output pyramid">
+      <p class="loop-label">For each level of the output pyramid, for each output tile</p>
+      <ol>
+        <li>Inverse-map the tile's four corners into the source</li>
+        <li>Does the footprint meet tissue? If not, emit a constant background tile</li>
+        <li>Read the source tiles through the cache</li>
+        <li>Warp the tile with a bilinear kernel</li>
+        <li>Encode the tile and append it to the pyramid</li>
+      </ol>
+    </div>
+    <p class="figure-caption reveal">The section in the animation is a sagittal Nissl section of a 24-week fetal brain from DHARANI (FB85); its misalignment is simulated to show the method.</p>
+  </div>
+</section>
+
+<section id="paper" class="section" aria-labelledby="paper-h">
+  <div class="wrap">
+    <article class="paper reveal">
+      <p class="paper-venue">Poster · 10th BigBrain Workshop · The Neuro, Montréal · 21 October 2026 · board P21</p>
+      <h2 id="paper-h">Streaming out-of-core rigid registration of whole-slide histology at native resolution</h2>
+      <p class="paper-authors"><b>Chrisline Sam Christopher</b>, Supriti Mulay, Richa Verma, Keerthi Ram, Sivathanu Neelakantan, Mohanasankar Sivaprakasam</p>
+      <ul class="findings">
+        <li>Rigidly aligns whole-slide sections at the scanner's full 0.5&nbsp;µm per pixel, where in-memory tools would need about a terabyte per section.</li>
+        <li>Works in output tiles: it reads only the source region each tile needs, skips tiles outside the tissue, and keeps a bounded cache.</li>
+        <li>About 600&nbsp;GB of output from about 12&nbsp;GB of memory; at level 1 the output matches the in-memory pipeline exactly.</li>
+        <li>From about half an hour on 2 cores to under four minutes on 32, after which writing the output is the bottleneck.</li>
+      </ul>
+      <p class="links">
+        <a class="btn" href="https://events.hifis.net/event/3620/contributions/26147/" rel="noopener">Read the abstract <svg class="i"><use href="#i-out"/></svg></a>
+        <button class="btn btn-ghost" type="button" data-copy-from="#bib-reg"><svg class="i"><use href="#i-copy"/></svg><span class="copy-label">Copy citation</span></button>
+      </p>
+      <details class="bibtex">
+        <summary>BibTeX</summary>
+<pre id="bib-reg">@misc{christopher2026streaming,
+  title        = {Streaming out-of-core rigid registration of whole-slide histology at native resolution},
+  author       = {Christopher, Chrisline Sam and Mulay, Supriti and Verma, Richa and Ram, Keerthi and Neelakantan, Sivathanu and Sivaprakasam, Mohanasankar},
+  howpublished = {Poster, 10th BigBrain Workshop, The Neuro, Montr{\'e}al},
+  year         = {2026},
+  url          = {https://events.hifis.net/event/3620/contributions/26147/}
+}</pre>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="next-h">
+  <div class="wrap">
+    <a class="next reveal" href="dharani.html">
+      <p class="kicker">Next project</p>
+      <h2 id="next-h">DHARANI <svg class="i"><use href="#i-next"/></svg></h2>
+      <p>A 3D atlas of the developing human brain, 14 to 24 weeks.</p>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="here"><a href="../">Chrisline Sam C</a> · Chennai, India</p>
+    <p class="credits">Section image: DHARANI (Verma et al., J&nbsp;Comp&nbsp;Neurol 2025), Sudha Gopalakrishnan Brain Centre, IIT Madras, CC BY 4.0. Numbers are from the poster abstract.</p>
+    <p class="copyright">© 2026 Chrisline Sam C</p>
+  </div>
+</footer>
+
+<script src="../assets/vendor/lenis-1.3.27.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/neurons.js" defer></script>
+<script src="../assets/js/story.js" defer></script>
+<script src="../assets/js/tiles.js" defer></script>
+</body>
+</html>

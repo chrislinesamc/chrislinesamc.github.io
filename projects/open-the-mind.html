@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open the Mind · Chrisline Sam C</title>
+<meta name="description" content="Open the Mind streams whole-brain histology from a server GPU to any browser, in fixed memory at any resolution. Winner of the BigBrain Hackathon 2026. By Chrisline Sam C.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://chrislinesamc.github.io/projects/open-the-mind.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://chrislinesamc.github.io/projects/open-the-mind.html">
+<meta property="og:title" content="Open the Mind · whole-brain histology, streamed">
+<meta property="og:description" content="Volume-rendered on the server GPU. Cut live from any browser. Fixed memory, at any resolution. Winner of the BigBrain Hackathon 2026.">
+<meta property="og:image" content="https://chrislinesamc.github.io/assets/img/otm/otm-brain-1000.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.replace('no-js', 'js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "Open the Mind",
+  "description": "Streaming out-of-core visualisation of high-resolution 3D volumes",
+  "codeRepository": "https://github.com/chrislinesamc/open-the-mind",
+  "author": {"@type": "Person", "name": "Chrisline Sam C", "url": "https://chrislinesamc.github.io/"},
+  "award": "Winner, BigBrain Hackathon 2026"
+}
+</script>
+</head>
+<body class="page-otm">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-next" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 3.5v-.2A1.8 1.8 0 0 0 8.7 1.5H3.3a1.8 1.8 0 0 0-1.8 1.8v5.4a1.8 1.8 0 0 0 1.8 1.8h.2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <p class="note"><span class="note-long">Still in development · some details may not be accurate yet</span><span class="note-short">In development · details may not be accurate yet</span></p>
+  <div class="nav-in">
+    <a class="brand" href="../" aria-label="Chrisline Sam C, home">
+      <img class="brand-mark" src="../assets/img/logo.svg" alt="" width="46" height="40">
+      <span>Chrisline Sam C</span>
+    </a>
+    <nav aria-label="Site">
+      <a href="../#about">About</a>
+      <a href="../#work">Work</a>
+      <a href="../#publications">Papers</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="neurons" data-neurons data-dim-after="-1" aria-hidden="true"></div>
+
+<div class="seq-stage" aria-hidden="true">
+  <img class="seq-still" src="../assets/img/otm/seq/f047.webp" alt="" width="1152" height="720">
+  <canvas class="seq" data-sequence="../assets/img/otm/seq/f{n}.webp" data-count="72" data-range="1,4" data-after="4.6,5.4,47,0.3"></canvas>
+</div>
+
+<main id="main">
+
+<section class="story" data-story aria-label="Open the Mind, told in scroll">
+
+  <div class="beat beat-intro" data-beat><div class="beat-in">
+    <p class="eyebrow">Project · winner, BigBrain Hackathon 2026</p>
+    <h1 class="story-title">Open the Mind</h1>
+    <p class="lede">Whole-brain histology, streamed. Every frame in this story was rendered by it.</p>
+    <p class="scroll-cue"><span></span>Scroll</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">A whole brain, in any browser.</h2>
+    <p>This is BigBrain: one human brain, sectioned at 20&nbsp;µm and reconstructed in 3D. Open the Mind renders it on a server GPU and streams the frames to the browser, which only has to show them.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">Cut it open anywhere.</h2>
+    <p>Three sliders move x, y and z cut planes, or a corner cutaway turns to face the camera as the brain rotates.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <h2 class="beat-title">Then zoom into the cut.</h2>
+    <p>The cut faces sharpen from the coarse overview down to the data's native resolution. A coarser level fills in while the fine bricks load.</p>
+  </div></div>
+
+  <div class="beat" data-beat><div class="beat-in">
+    <p class="beat-num"><b>Fixed</b> memory, at any resolution.</p>
+    <p>The unit of work, and of memory, is what the screen needs, never the whole volume. From 26 to 278&nbsp;GB of data, GPU memory stays at the size of the brick pool.</p>
+  </div></div>
+</section>
+
+<section class="section" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="split reveal">
+      <p id="why-h" class="big-copy">Whole-brain histology at cellular resolution runs from terabytes to petabytes. Today's tools either show it as 2D slices or load the whole volume into memory before rendering.</p>
+      <div>
+        <p>Neither lets a researcher see the whole brain in 3D, cut it open anywhere and zoom into the cut, from an ordinary browser.</p>
+        <p>Open the Mind does. It builds a multi-resolution brick pyramid without loading the volume whole, renders it on the GPU through a fixed-size brick cache, and streams frames to a browser page with sliders and orbit, pan and zoom.</p>
+      </div>
+    </div>
+
+    <dl class="stats">
+      <div class="stat reveal"><dt>60&nbsp;fps</dt><dd>A 1080p camera flight on a laptop RTX&nbsp;5060, in 1.4&nbsp;GB of GPU memory.</dd></div>
+      <div class="stat reveal"><dt>278&nbsp;GB</dt><dd>From 26 to 278&nbsp;GB of data, the same 30&nbsp;s flight holds 60&nbsp;fps on a GB10, with GPU memory fixed at the 4&nbsp;GB brick pool.</dd></div>
+      <div class="stat reveal"><dt>2.5&nbsp;min</dt><dd>To build a 138.5&nbsp;GB raw volume into a 24.1&nbsp;GB multi-resolution pyramid.</dd></div>
+      <div class="stat reveal"><dt>1&nbsp;kernel</dt><dd>Ray casting, early termination, empty-space skipping and cut planes, fused into one Triton kernel.</dd></div>
+    </dl>
+
+    <h2 class="sub-title reveal">How it works</h2>
+    <ol class="pipeline">
+      <li class="reveal"><span class="step">01</span><h3>Pyramid</h3><p>Reads the volume slab by slab within a memory budget and writes compressed, sharded bricks of 16&nbsp;×&nbsp;128&nbsp;×&nbsp;128 voxels as OME-Zarr&nbsp;0.5. Empty background bricks are not stored.</p></li>
+      <li class="reveal"><span class="step">02</span><h3>Brick cache</h3><p>A fixed GPU brick pool with a page table and least-recently-used eviction. Rays request missing bricks; a coarser level fills in while the fine ones load.</p></li>
+      <li class="reveal"><span class="step">03</span><h3>Ray caster</h3><p>One fused Triton kernel: front-to-back compositing, early ray termination, empty-space skipping, cut planes as kernel arguments.</p></li>
+      <li class="reveal"><span class="step">04</span><h3>Streaming</h3><p>JPEG frames encoded on the GPU with nvJPEG and pushed over a WebSocket: low resolution while dragging, sharp when the view stops.</p></li>
+      <li class="reveal"><span class="step">05</span><h3>Browser</h3><p>One 3D view, three cut planes, a camera-facing cutaway, orbit, pan and zoom, colour maps and windowing.</p></li>
+    </ol>
+
+    <div class="photo reveal">
+      <img src="../assets/img/otm/hackathon-win.webp" alt="Chrisline Sam C receiving the BigBrain Hackathon 2026 prize from the organisers, Gregory Kiar and Thomas Funck" width="1400" height="1050" loading="lazy">
+      <div>
+        <p class="kicker kicker-otm">The Neuro, Montréal · 18–19 October 2026</p>
+        <p class="big-copy">Voted the winning project of the BigBrain Hackathon 2026.</p>
+        <p>Built at the hackathon, held just before the 10th BigBrain Workshop. The workshop participants voted it the winner; the prize was a Dell Pro Max with NVIDIA GB10, presented by the organisers, Gregory Kiar and Thomas Funck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paper" class="section" aria-labelledby="cite-h">
+  <div class="wrap">
+    <article class="paper reveal">
+      <p class="paper-venue">Software · BigBrain Hackathon 2026 · CC BY-NC 4.0</p>
+      <h2 id="cite-h">Open the Mind: streaming out-of-core visualisation of high-resolution 3D volumes</h2>
+      <p class="paper-authors"><b>Chrisline Sam C</b></p>
+      <ul class="findings">
+        <li>One command sets it up on public BigBrain data: it checks the machine, installs what is needed, builds the pyramid within 2&nbsp;GB of RAM and GPU memory, and starts the viewer.</li>
+        <li>Tested on a laptop RTX&nbsp;5060, a GB10 (DGX Spark) and an A100.</li>
+        <li>Handles the full BigBrain: 7,404 sections of 6572&nbsp;×&nbsp;5711 pixels, 278&nbsp;GB as voxels.</li>
+      </ul>
+      <p class="links">
+        <a class="btn" href="https://github.com/chrislinesamc/open-the-mind" rel="noopener">Code on GitHub <svg class="i"><use href="#i-out"/></svg></a>
+        <a class="btn btn-ghost" href="https://tfunck.github.io/bigbrainhack2026/" rel="noopener">The hackathon <svg class="i"><use href="#i-out"/></svg></a>
+        <button class="btn btn-ghost" type="button" data-copy-from="#bib-otm"><svg class="i"><use href="#i-copy"/></svg><span class="copy-label">Copy citation</span></button>
+      </p>
+      <details class="bibtex">
+        <summary>BibTeX</summary>
+<pre id="bib-otm">@software{samc2026openthemind,
+  title  = {Open the Mind: streaming out-of-core visualisation of high-resolution {3D} volumes},
+  author = {{Chrisline Sam C}},
+  year   = {2026},
+  url    = {https://github.com/chrislinesamc/open-the-mind},
+  note   = {Winning project, BigBrain Hackathon 2026}
+}</pre>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="next-h">
+  <div class="wrap">
+    <a class="next reveal" href="registration.html">
+      <p class="kicker">Next project</p>
+      <h2 id="next-h">Streaming registration <svg class="i"><use href="#i-next"/></svg></h2>
+      <p>Rigid registration of whole-slide histology at native resolution, in bounded memory.</p>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="here"><a href="../">Chrisline Sam C</a> · Chennai, India</p>
+    <p class="credits">Every brain image on this page was rendered by Open the Mind from BigBrain (Amunts et al., Science 2013), CC BY-NC-SA 4.0.</p>
+    <p class="copyright">© 2026 Chrisline Sam C</p>
+  </div>
+</footer>
+
+<script src="../assets/vendor/lenis-1.3.27.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/neurons.js" defer></script>
+<script src="../assets/js/story.js" defer></script>
+<script src="../assets/js/sequence.js" defer></script>
+</body>
+</html>
