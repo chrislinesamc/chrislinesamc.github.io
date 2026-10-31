@@ -3,6 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5VMFHKE1M6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // like the visit counter in site.js: only the live https site, and not browsers opened once with ?me or test browsers
+  try {
+    const q = new URLSearchParams(location.search);
+    const me = q.has('me') ? q.get('me') !== '0' : !!localStorage.getItem('me');
+    if (location.protocol !== 'https:' || me || navigator.webdriver) window['ga-disable-G-5VMFHKE1M6'] = true;
+  } catch (e) {}
+
+  gtag('config', 'G-5VMFHKE1M6');
+</script>
 <title>DHARANI · Chrisline Sam C</title>
 <meta name="description" content="DHARANI, the 3D Developing Human-brain Atlas from the Sudha Gopalakrishnan Brain Centre, IIT Madras: five fetal brains from 14 to 24 weeks, rendered live in your browser. Chrisline Sam C is a co-author.">
 <meta name="theme-color" content="#000000">
