@@ -1,3 +1,4 @@
+// © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 // neurons.js: the living background. Neurons with branching dendrites, joined by curved axons into one connected
 // network. Signals circulate through it without stopping: each travels to the end of its axon, the neuron there
 // lights up, and after a short synaptic pause the signal fires on along another connection, preferring neurons that

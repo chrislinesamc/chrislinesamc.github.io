@@ -1,3 +1,4 @@
+// © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 // The registration poster, played on a real Nissl section. The output is written tile by tile: each tile's four
 // corners map back into the misaligned source and only that footprint is read; tiles that miss the tissue become a
 // constant background without reading anything. <canvas data-tiles data-src="section.webp" data-range="1.5,4.5">

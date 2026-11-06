@@ -1,3 +1,4 @@
+// © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 // A scroll-scrubbed image sequence, the way Apple's product pages do it: pre-rendered frames drawn on a canvas,
 // picked by the story's beat position. <canvas data-sequence="path/f{n}.webp" data-count="72" data-range="0.6,3.4">
 // Optional data-after="a,b,f,o": after the story, between beat positions a and b, play back to frame f and fade the

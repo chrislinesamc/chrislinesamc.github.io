@@ -1,3 +1,4 @@
+// © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 // Page behaviour: smooth scroll, reveal-on-scroll, the current section in the nav, copy email, local time.
 (() => {
   'use strict';

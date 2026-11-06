@@ -1,3 +1,4 @@
+# © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 """Build brain volumes for the site's WebGL renderer from NIfTI files.
 
 usage: python tools/volumes.py <out_dir> [options] <file.nii.gz>:<id>:<label> [...]

@@ -1,3 +1,4 @@
+// © 2026 Chrisline Sam C. All rights reserved. Terms: https://github.com/chrislinesamc/chrislinesamc.github.io/blob/master/LICENSE
 // DHARANI fetal brains, volume-rendered with WebGL2 and driven by scroll. Two choreographies (data-choreo):
 //  'dharani' (project page): five brains grow from 14 to 24 weeks, following the beats that story.js reports;
 //  'home' (home page): one brain (data-only) sits behind the name with a corner cut away, then turns, splits into

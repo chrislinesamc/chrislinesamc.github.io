@@ -1,0 +1,16 @@
+Copyright (c) 2026 Chrisline Sam C. All rights reserved.
+
+This repository holds the personal website of Chrisline Sam C
+(https://chrislinesamc.github.io). Its source code, page text, design and the
+author's own images are not licensed for reuse. You may view them, and fork this
+repository on GitHub as GitHub's terms allow, but you may not copy, modify,
+publish or redistribute them, in whole or in part, without written permission.
+
+To ask for permission: chrislinesam@gmail.com
+
+This notice does not cover third-party material, which keeps its own terms:
+
+- Lenis (assets/vendor/): MIT License, see assets/vendor/LICENSE-lenis.md
+- Inter and JetBrains Mono (assets/fonts/): SIL Open Font License
+- Brain volumes, images and frames made from DHARANI, ANCHOR, C-Stroke and
+  BigBrain data: as credited on the site and in the volumes.json files
